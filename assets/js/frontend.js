@@ -5,6 +5,9 @@ jQuery( document ).ready( function() {
 		pagination: '.tm-post-carousel-widget .swiper-pagination',
 		slidesPerView: window.TMWidgetParam.slidesPerView,
 		paginationClickable: true,
-		spaceBetween: 30
+		spaceBetween: 30,
+		direction: 'horizontal',
+		speed: 1000,
+		autoplay: 800
 	} );
 });

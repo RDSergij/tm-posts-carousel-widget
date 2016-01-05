@@ -16,7 +16,7 @@ if ( ! defined( 'WPINC' ) ) {
 		<?php while ( $query->have_posts() ) : ?>
 		<?php $query->the_post(); ?>
 			<?php $images = wp_get_attachment_image_src( get_post_thumbnail_id(),'medium', true ) ?>
-			<div class="swiper-slide" style="background: url(<?php echo $images[0] ?>) no-repeat; background-size: contain;">
+			<div class="swiper-slide" style="background: url(<?php echo $images[0] ?>) no-repeat; background-size: cover;">
 				<a href="<?php echo get_the_permalink() ?>">
 					<h4><?php echo get_the_title() ?></h4>
 					<div class="slider-description">
