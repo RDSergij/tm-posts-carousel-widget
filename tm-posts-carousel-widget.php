@@ -28,7 +28,7 @@ if ( ! class_exists( 'TM_Posts_Carousel_Widget' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	if( ! defined( 'PHOTOLAB_BASE_TM_PATH' ) ) {
+	if ( ! defined( 'PHOTOLAB_BASE_TM_PATH' ) ) {
 		define( 'PHOTOLAB_BASE_TM_PATH', dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
