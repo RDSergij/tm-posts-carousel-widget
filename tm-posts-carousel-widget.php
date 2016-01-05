@@ -19,7 +19,7 @@ if ( ! class_exists( 'TM_Posts_Carousel_Widget' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	if( ! defined('PHOTOLAB_BASE_TM_ALIAS') ){
+	if ( ! defined( 'PHOTOLAB_BASE_TM_ALIAS' ) ) {
 		define( 'PHOTOLAB_BASE_TM_ALIAS', 'photolab-base-tm' );
 	}
 
@@ -28,7 +28,7 @@ if ( ! class_exists( 'TM_Posts_Carousel_Widget' ) ) {
 	 *
 	 * @since 1.0.0
 	 */
-	if( ! defined('PHOTOLAB_BASE_TM_PATH') ){
+	if ( ! defined( 'PHOTOLAB_BASE_TM_PATH' ) ) {
 		define( 'PHOTOLAB_BASE_TM_PATH', dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
@@ -88,7 +88,7 @@ if ( ! class_exists( 'TM_Posts_Carousel_Widget' ) ) {
 
 			// Custom js
 			wp_register_script( 'tm-post-carousel-script-frontend', plugins_url( 'assets/js/frontend.min.js', __FILE__ ), '', '', true );
-			wp_localize_script( 'tm-post-carousel-script-frontend', 'TMWidgetParam', array( 'slidesPerView'	=> $slides_per_view ) );
+			wp_localize_script( 'tm-post-carousel-script-frontend', 'TMWidgetParam', array( 'slidesPerView' => $slides_per_view ) );
 			wp_enqueue_script( 'tm-post-carousel-script-frontend' );
 
 			// Swiper styles
@@ -163,7 +163,7 @@ if ( ! class_exists( 'TM_Posts_Carousel_Widget' ) ) {
 							)
 					);
 			$count_html = $count_field->render();
-			
+
 			$slides_per_view_field = new UI_Text(
 							array(
 									'id'            => $this->get_field_id( 'slides_per_view' ),
