@@ -116,13 +116,6 @@ if ( ! class_exists( 'TM_Posts_Carousel_Widget' ) ) {
 				$$key = ! empty( $instance[ $key ] ) ? $instance[ $key ] : $value;
 			}
 
-			// Custom js
-			wp_register_script( 'tm-post-carousel-script-admin', plugins_url( 'assets/js/admin.min.js', __FILE__ ) );
-			wp_localize_script( 'tm-post-carousel-script-admin', 'TMWidgetParam', array(
-						'ajaxurl'		=> admin_url( 'admin-ajax.php' ),
-					)
-				);
-			wp_enqueue_script( 'tm-post-carousel-script-admin' );
 			// Custom styles
 			wp_register_style( 'tm-post-carousel-admin', plugins_url( 'assets/css/admin.min.css', __FILE__ ) );
 			wp_enqueue_style( 'tm-post-carousel-admin' );
