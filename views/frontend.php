@@ -20,7 +20,7 @@ if ( ! defined( 'WPINC' ) ) {
 				<a href="<?php echo get_the_permalink() ?>">
 					<h4><?php echo get_the_title() ?></h4>
 					<div class="slider-description">
-						<?php echo wp_trim_words( get_the_excerpt(), $length ) ?>
+						<?php echo substr( get_the_excerpt(), 0, $length ) . '...'; ?>
 					</div>
 				</a>
 			</div>

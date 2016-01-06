@@ -58,7 +58,7 @@ if ( ! class_exists( 'TM_Posts_Carousel_Widget' ) ) {
 				'categories'		=> 0,
 				'count'				=> 4,
 				'slides_per_view'	=> 2,
-				'length'			=> 5,
+				'length'			=> 15,
 			);
 		}
 
@@ -181,9 +181,9 @@ if ( ! class_exists( 'TM_Posts_Carousel_Widget' ) ) {
 									'id'            => $this->get_field_id( 'length' ),
 									'type'          => 'text',
 									'name'          => $this->get_field_name( 'length' ),
-									'placeholder'   => __( 'words length', PHOTOLAB_BASE_TM_ALIAS ),
+									'placeholder'   => __( 'symbols length', PHOTOLAB_BASE_TM_ALIAS ),
 									'value'         => $length,
-									'label'         => __( 'Words length', PHOTOLAB_BASE_TM_ALIAS ),
+									'label'         => __( 'Symbols length', PHOTOLAB_BASE_TM_ALIAS ),
 							)
 					);
 			$length_html = $length_field->render();
