@@ -7,7 +7,7 @@ jQuery( document ).ready( function() {
 		paginationClickable: true,
 		spaceBetween: 30,
 		direction: 'horizontal',
-		speed: 1000,
-		autoplay: 800
+		speed: 2500,
+		autoplay: 2500
 	} );
 });
