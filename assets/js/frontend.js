@@ -2,13 +2,13 @@ jQuery( document ).ready( function() {
 
 	// Slider init
 	window.swiper_carousel = new window.Swiper( '.tm-post-carousel-widget', {
-		nextButton: '.tm-post-slider-widget .swiper-button-next',
-		prevButton: '.tm-post-slider-widget .swiper-button-prev',
+		nextButton: '.tm-post-carousel-widget .swiper-button-next',
+		prevButton: '.tm-post-carousel-widget .swiper-button-prev',
 		slidesPerView: window.TMWidgetParam.slidesPerView,
 		paginationClickable: true,
 		spaceBetween: 30,
 		direction: 'horizontal',
-		speed: 2500,
-		autoplay: 2500
+		speed: 1500,
+		autoplay: 2000
 	} );
 });
