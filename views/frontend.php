@@ -1,6 +1,7 @@
 <?php
 /**
  * Frontend view
+ *
  * @package TM_Posts_Widget
  */
 
