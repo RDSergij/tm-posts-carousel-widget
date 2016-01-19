@@ -116,32 +116,24 @@ if ( ! class_exists( 'TM_Posts_Carousel_Widget' ) ) {
 				$$key = ! empty( $instance[ $key ] ) ? $instance[ $key ] : $value;
 			}
 
-			// Ui cherri api
-			wp_register_script( 'tm-post-slider-script-api', plugins_url( 'assets/js/cherry-api.js', __FILE__ ) );
-			wp_localize_script( 'tm-post-slider-script-api', 'cherry_ajax', wp_create_nonce( 'cherry_ajax_nonce' ) );
-			wp_localize_script( 'tm-post-slider-script-api', 'wp_load_style', null );
-			wp_localize_script( 'tm-post-slider-script-api', 'wp_load_script', null );
-			wp_enqueue_script( 'tm-post-slider-script-api' );
-
 			// Custom styles
 			wp_register_style( 'tm-post-carousel-admin', plugins_url( 'assets/css/admin.min.css', __FILE__ ) );
 			wp_enqueue_style( 'tm-post-carousel-admin' );
 
 			// include ui-elements
-			require_once __DIR__ . '/admin/lib/ui-elements/ui-text/ui-text.php';
-			require_once __DIR__ . '/admin/lib/ui-elements/ui-select/ui-select.php';
+			require_once __DIR__ . '/admin/lib/fox-ui-elements/ui-input.php';
+			require_once __DIR__ . '/admin/lib/fox-ui-elements/ui-select.php';
 
-			$title_field = new UI_Text(
-							array(
-									'id'            => $this->get_field_id( 'title' ),
-									'type'          => 'text',
-									'name'          => $this->get_field_name( 'title' ),
-									'placeholder'   => __( 'New title', PHOTOLAB_BASE_TM_ALIAS ),
-									'value'         => $title,
-									'label'         => __( 'Title widget', PHOTOLAB_BASE_TM_ALIAS ),
-							)
-					);
-			$title_html = $title_field->render();
+			$title_field = new UI_Input_Fox(
+					array(
+						'id'			=> $this->get_field_id( 'title' ),
+						'class'			=> 'title',
+						'name'			=> $this->get_field_name( 'title' ),
+						'value'			=> $title,
+						'placeholder'	=> __( 'New title', PHOTOLAB_BASE_TM_ALIAS ),
+					)
+			);
+			$title_html = $title_field->output();
 
 			$categories_list = get_categories( array( 'hide_empty' => 0 ) );
 			$categories_array = array( '0' => 'not selected' );
@@ -149,51 +141,48 @@ if ( ! class_exists( 'TM_Posts_Carousel_Widget' ) ) {
 				$categories_array[ $category_item->term_id ] = $category_item->name;
 			}
 
-			$categories_field = new UI_Select(
-							array(
-								'id'				=> $this->get_field_id( 'categories' ),
-								'name'				=> $this->get_field_name( 'categories' ),
-								'value'				=> $categories,
-								'options'			=> $categories_array,
-							)
-						);
-			$categories_html = $categories_field->render();
+			$category_field = new UI_Select_Fox(
+								array(
+									'id'				=> $this->get_field_id( 'categories' ),
+									'name'				=> $this->get_field_name( 'categories' ),
+									'default'			=> $categories,
+									'options'			=> $categories_array,
+								)
+							);
+			$categories_html = $category_field->output();
 
-			$count_field = new UI_Text(
-							array(
-									'id'            => $this->get_field_id( 'count' ),
-									'type'          => 'text',
-									'name'          => $this->get_field_name( 'count' ),
-									'placeholder'   => __( 'posts count', PHOTOLAB_BASE_TM_ALIAS ),
-									'value'         => $count,
-									'label'         => __( 'Count of posts', PHOTOLAB_BASE_TM_ALIAS ),
-							)
-					);
-			$count_html = $count_field->render();
+			$count_field = new UI_Input_Fox(
+					array(
+						'id'			=> $this->get_field_id( 'count' ),
+						'name'			=> $this->get_field_name( 'count' ),
+						'value'			=> $count,
+						'placeholder'   => __( 'posts count', PHOTOLAB_BASE_TM_ALIAS ),
+						'label'         => __( 'Count of posts', PHOTOLAB_BASE_TM_ALIAS ),
+					)
+			);
+			$count_html = $count_field->output();
 
-			$slides_per_view_field = new UI_Text(
-							array(
-									'id'            => $this->get_field_id( 'slides_per_view' ),
-									'type'          => 'text',
-									'name'          => $this->get_field_name( 'slides_per_view' ),
-									'placeholder'   => __( 'slides per view', PHOTOLAB_BASE_TM_ALIAS ),
-									'value'         => $slides_per_view,
-									'label'         => __( 'Items per view', PHOTOLAB_BASE_TM_ALIAS ),
-							)
-					);
-			$slides_per_view_html = $slides_per_view_field->render();
+			$slides_per_view_field = new UI_Input_Fox(
+					array(
+						'id'			=> $this->get_field_id( 'slides_per_view' ),
+						'name'			=> $this->get_field_name( 'slides_per_view' ),
+						'value'			=> $slides_per_view,
+						'placeholder'	=> __( 'slides per view', PHOTOLAB_BASE_TM_ALIAS ),
+						'label'         => __( 'Items per view', PHOTOLAB_BASE_TM_ALIAS ),
+					)
+			);
+			$slides_per_view_html = $slides_per_view_field->output();
 
-			$length_field = new UI_Text(
-							array(
-									'id'            => $this->get_field_id( 'length' ),
-									'type'          => 'text',
-									'name'          => $this->get_field_name( 'length' ),
-									'placeholder'   => __( 'symbols length', PHOTOLAB_BASE_TM_ALIAS ),
-									'value'         => $length,
-									'label'         => __( 'Symbols length', PHOTOLAB_BASE_TM_ALIAS ),
-							)
-					);
-			$length_html = $length_field->render();
+			$length_field = new UI_Input_Fox(
+					array(
+						'id'			=> $this->get_field_id( 'length' ),
+						'name'			=> $this->get_field_name( 'length' ),
+						'value'			=> $length,
+						'placeholder'	=> __( 'symbols length', PHOTOLAB_BASE_TM_ALIAS ),
+						'label'			=> __( 'Symbols length', PHOTOLAB_BASE_TM_ALIAS ),
+					)
+			);
+			$length_html = $length_field->output();
 
 			// show view
 			require 'views/widget-form.php';
